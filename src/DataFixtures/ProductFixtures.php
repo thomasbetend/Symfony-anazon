@@ -9,6 +9,8 @@ use Doctrine\Persistence\ObjectManager;
 
 class ProductFixtures extends Fixture implements DependentFixtureInterface
 {
+    const PRODUCT_DONKEY_PELUCHE = 'PRODUCT_DONKEY_PELUCHE';
+
     public function load(ObjectManager $manager): void
     {
         $product = new Product();
@@ -16,6 +18,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
         $product->setCategory($this->getReference(CategoryFixtures::CATEGORY_PELUCHES));
         $product->setPrice(12.23);
         $manager->persist($product);
+        $this->addReference(self::PRODUCT_DONKEY_PELUCHE, $product);
 
         $manager->flush();
     }
