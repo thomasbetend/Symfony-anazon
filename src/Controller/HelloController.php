@@ -10,11 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HelloController extends AbstractController
 {
-    #[Route('/hello/{name<\w+>}', methods: [ 'GET' ], name: 'app_hello')]
+    #[Route('/hello/{name<\w+>}', methods: ['GET'], name: 'app_hello')]
     public function index(Request $request, string $name = 'remi'): Response
     {
         dd($request->headers);
-        
+
         // return $this->render('hello/index.html.twig', [
         //     'controller_name' => 'HelloController',
         // ]);

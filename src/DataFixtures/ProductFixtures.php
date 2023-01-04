@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class ProductFixtures extends Fixture implements DependentFixtureInterface
 {
-    const PRODUCT_DONKEY_PELUCHE = 'PRODUCT_DONKEY_PELUCHE';
+    public const PRODUCT_DONKEY_PELUCHE = 'PRODUCT_DONKEY_PELUCHE';
 
     public function load(ObjectManager $manager): void
     {

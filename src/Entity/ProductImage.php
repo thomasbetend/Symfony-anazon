@@ -17,7 +17,7 @@ class ProductImage
     private ?string $path = null;
 
     #[ORM\ManyToOne(inversedBy: 'productImages')]
-    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?Product $product = null;
 
     #[ORM\Column]
