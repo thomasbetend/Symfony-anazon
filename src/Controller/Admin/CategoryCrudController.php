@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 
@@ -20,5 +21,6 @@ class CategoryCrudController extends AbstractCrudController
         yield Field::new('title');
         yield AssociationField::new('parent')->setRequired(false);
         yield TextEditorField::new('description')->hideOnIndex();
+        yield DateTimeField::new('updatedAt')->setDisabled();
     }
 }
