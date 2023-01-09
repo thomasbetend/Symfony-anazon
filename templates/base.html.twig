@@ -20,6 +20,18 @@
         {% include '_parts/nav.html.twig' %}
         {% include '_parts/grey-menu.html.twig'%}
 
-        {% block body %}{% endblock %}
+        
+
+        {% block body %}
+            {% block arborescence %}
+                <div class="menu-chevron">
+                    <a href="{{ path('app_categories') }}">
+                        <div class="menu-chevron-item">
+                            <p>Accueil</p>
+                            <i class="fa-solid fa-chevron-right chevron1"></i>
+                        </div>
+                    </a>
+            {% endblock %}
+        {% endblock %}
     </body>
 </html>

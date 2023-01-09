@@ -3,24 +3,28 @@
 {% block title %}catégories{% endblock %}
 
 {% block body %}
-
-    {% include '_parts/categories-menu-bar.html.twig' %}
-
+{% block arborescence %}
+{{ parent() }}
+        <a href="{{ path('app_categories') }}">
+            <div class="menu-categories-item">
+                <p>Catégories</p>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </a>
+    </div>
+{% endblock %}
     <div class="container">
         <div class="row">
             {% for category in categories %}
-            
                 <div class="col">
-                    <a href="{{ path('app_category', {id: category.id}) }}">
+                    <a href="{{ path('app_category', {slug: category.slug}) }}">
                         <div class="card">
                             <img src="{{ asset('category-images/' ~ category.imagePath) }}">
                             <h3>{{ category.title }}</h3>
                         </div>
                     </a>
                 </div>
-
             {% endfor %}            
         </div>
     </div>
-
 {% endblock %}

@@ -3,19 +3,194 @@
 {% block title %}Catégorie {{ category.title }}{% endblock %}
 
 {% block body %}
-<h1>Catégorie {{ category.title }}</h1>
-    <p>{{ category.description | raw }}</p>
-    {% for product in category.products %}
-        <div>
-            {% if product.productImages | length > 0 %}
-                <img src="{{ asset('product-images/' ~ product.productImages[0].path) }}" width="100"/>
-            {% endif %}
-            <span>{{ product.price | format_currency('EUR', locale='fr') }}</span>
+{% block arborescence %}
+{{ parent() }}
+        <a href="{{ path('app_categories') }}">
+            <div class="menu-chevron-item">
+                <p>Catégories</p>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </a>
+        <a href="{{ path('app_category', {slug: category.slug}) }}">
+            <div class="menu-chevron-item">
+                <p>{{ category.title }}</p>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </a>
+    </div>
+{% endblock %}
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="side-categories">
+                    <div class="side-title">
+                        <p class="text">Catégories</p>
+                        <span>Nombre</span>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case case-checked">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="side-category-title">Toutes les catégories</div>
+                        </div>
+                        <div class="item-number">10</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Jouets</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Peluches</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Balades</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Vêtements</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Autres</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                </div>
+                <div class="side-categories">
+                    <div class="side-title">
+                        <p class="text">Catégories</p>
+                        <span>Nombre</span>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case case-checked">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="side-category-title">Toutes les catégories</div>
+                        </div>
+                        <div class="item-number">10</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Jouets</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Peluches</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Balades</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Vêtements</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Autres</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                </div>
+                <div class="side-categories">
+                    <div class="side-title">
+                        <p class="text">Catégories</p>
+                        <span>Nombre</span>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case case-checked">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="side-category-title">Toutes les catégories</div>
+                        </div>
+                        <div class="item-number">10</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Jouets</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Peluches</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Balades</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Vêtements</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                    <div class="side-category-item">
+                        <div class="choice">
+                            <div class="case"></div>
+                            <div class="side-category-title">Autres</div>
+                        </div>
+                        <div class="item-number">5</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <h1>Catégorie {{ category.title }}</h1>
+                <p>{{ category.description | raw }}</p>
+                {% for product in category.products %}
+                    <div>
+                        {% if product.productImages | length > 0 %}
+                            <img src="{{ asset('product-images/' ~ product.productImages[0].path) }}" width="100"/>
+                        {% endif %}
+                        <span>{{ product.price | format_currency('EUR', locale='fr') }}</span>
+                    </div>
+                {% else %}
+                    Aucun produit dans l'univers {{ category.title }} pour le moment. <br>
+                {% endfor %}
+                            
+                <a href="{{ path('app_categories') }}">Retour à la liste</a>
+            </div>
         </div>
-    {% else %}
-        Aucun produit pour l'univers {{ category.title }}
-    {% endfor %}
-                
-    <a href="{{ path('app_categories') }}">Retour à la liste</a>
+    </div>
+
 
 {% endblock %}
