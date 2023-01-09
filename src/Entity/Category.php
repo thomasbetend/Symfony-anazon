@@ -35,6 +35,9 @@ class Category
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $imagePath = null;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -143,6 +146,18 @@ class Category
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return $this->imagePath;
+    }
+
+    public function setImagePath(string $imagePath): self
+    {
+        $this->imagePath = $imagePath;
 
         return $this;
     }

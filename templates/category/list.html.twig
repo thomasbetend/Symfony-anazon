@@ -3,12 +3,24 @@
 {% block title %}catégories{% endblock %}
 
 {% block body %}
-<div class="main w-75">
-    <h1>Catégories</h1>
-        {% for category in categories %}
-            <ul>
-                <li><a href="{{ path('app_category', {id: category.id}) }}">{{ category.title }}</a></li>
-            </ul>
-        {% endfor %}
-</div>
+
+    {% include '_parts/categories-menu-bar.html.twig' %}
+
+    <div class="container">
+        <div class="row">
+            {% for category in categories %}
+            
+                <div class="col">
+                    <a href="{{ path('app_category', {id: category.id}) }}">
+                        <div class="card">
+                            <img src="{{ asset('category-images/' ~ category.imagePath) }}">
+                            <h3>{{ category.title }}</h3>
+                        </div>
+                    </a>
+                </div>
+
+            {% endfor %}            
+        </div>
+    </div>
+
 {% endblock %}
