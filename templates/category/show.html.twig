@@ -174,20 +174,37 @@
                 </div>
             </div>
             <div class="col-9">
-                <h1>Catégorie {{ category.title }}</h1>
+                <h3 class="text-primary product-title">Catégorie {{ category.title }}</h3>
                 <p>{{ category.description | raw }}</p>
-                {% for product in category.products %}
-                    <div>
-                        {% if product.productImages | length > 0 %}
-                            <img src="{{ asset('product-images/' ~ product.productImages[0].path) }}" width="100"/>
-                        {% endif %}
-                        <span>{{ product.price | format_currency('EUR', locale='fr') }}</span>
-                    </div>
-                {% else %}
-                    Aucun produit dans l'univers {{ category.title }} pour le moment. <br>
-                {% endfor %}
-                            
-                <a href="{{ path('app_categories') }}">Retour à la liste</a>
+                <div class="row">
+                    {% for product in category.products %}
+                        <div class="col">
+                            <a href="">
+                                <div class="card card-products">
+                                    {% if product.productImages | length > 0 %}
+                                        <img src="{{ asset('product-images/' ~ product.productImages[0].path) }}" width="100"/>
+                                    {% endif %}
+                                    <div class="legends-product">
+                                        <span class="title-product">Peluche n° {{ product.id }}</span>
+                                        <span class="price-product">{{ product.price | format_currency('EUR', locale='fr') }}</span>
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="text-no-product-in-categories">
+                            Aucun produit dans l'univers {{ category.title }} pour le moment. <br>
+                            <a href="{{ path('app_categories') }}">Retour à la liste</a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

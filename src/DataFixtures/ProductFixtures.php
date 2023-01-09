@@ -11,6 +11,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
 {
     public const PRODUCT_DONKEY_PELUCHE = 'PRODUCT_DONKEY_PELUCHE';
     public const PRODUCT_DONKEY_PELUCHE2 = 'PRODUCT_DONKEY_PELUCHE2';
+    public const PRODUCT_DONKEY_PELUCHE3 = 'PRODUCT_DONKEY_PELUCHE3';
     
     public function load(ObjectManager $manager): void
     {
@@ -27,6 +28,13 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
         $product2->setPrice(14.50);
         $manager->persist($product2);
         $this->addReference(self::PRODUCT_DONKEY_PELUCHE2, $product2);
+
+        $product3 = new Product();
+        $product3->setName('La plus belle des peluches');
+        $product3->setCategory($this->getReference(CategoryFixtures::CATEGORY_PELUCHES));
+        $product3->setPrice(23);
+        $manager->persist($product3);
+        $this->addReference(self::PRODUCT_DONKEY_PELUCHE3, $product3);
 
         $manager->flush();
     }
