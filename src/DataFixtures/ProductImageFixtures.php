@@ -17,6 +17,12 @@ class ProductImageFixtures extends Fixture implements DependentFixtureInterface
         $productImage->setProduct($this->getReference(ProductFixtures::PRODUCT_DONKEY_PELUCHE));
         $manager->persist($productImage);
 
+        $productImage2 = new ProductImage();
+        $productImage2->setPath('ane-en-peluche2.jpg');
+        $productImage2->setPosition(1);
+        $productImage2->setProduct($this->getReference(ProductFixtures::PRODUCT_DONKEY_PELUCHE2));
+        $manager->persist($productImage2);
+
         $manager->flush();
     }
 

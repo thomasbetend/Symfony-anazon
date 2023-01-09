@@ -1,0 +1,197 @@
+@import "variables";
+
+@import "~bootstrap/scss/bootstrap";
+
+:root {
+    --bs-navbar-brand-color: white;
+}
+
+body {
+    background-color: white;
+}
+
+/* Above white part */
+
+.white {
+    width: 100vw;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    color: $grey;
+}
+
+.pictos-right {
+    display: flex;
+}
+
+fa-solid {
+    margin-right: 20px;
+}
+
+.store {
+    margin-right: 50px;
+}
+
+/* Nav Bar */
+
+.bg-primary {
+    padding-left: 50px;
+    height: 110px;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: space-around;
+}
+
+.fa-democrat {
+    color: $secondary;
+    padding-right: 3%;
+}
+
+.navbar-brand {
+    font-size: 2rem !important;
+}
+
+.my-lg-0 {
+    display: flex;
+    width: 450px;
+    height: 60px;
+    position: relative;
+}
+
+.form-control {
+    border: white;
+    border-radius: 22px;
+    z-index: 4;
+    padding-left: 20px;
+    width: 440px;
+    height: 60px;
+    z-index: 3;
+    position: absolute;
+}
+
+.button-nav {
+    border-radius: 22px;
+    width: 170px;
+    color: white;
+    z-index: 5;
+    position: absolute;
+    right: 0;
+    height: 60px;
+}
+
+.text-nav-bar {
+    color: white;
+    margin-left: 10px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.fa-user {
+    top: -7px;
+    position: relative;
+    color: white;
+    font-size: 20px;
+}
+
+.fav {
+    display: flex;
+    top: -7px;
+    position: relative;
+    font-size: 25px;
+}
+
+.fa-heart, .fa-cart-plus {
+    color: white;
+}
+
+.yellow-round {
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: $secondary;
+    margin-left: 5px;
+    position: relative;
+    top: 4px;
+    color: white;
+    font-size: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grey menu bar */
+
+.grey {
+    width: 100vw;
+    height: 70px;
+    background-color: $light;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    color: rgb(99, 99, 99);
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-size: 1.2rem;
+    margin-left: 30px;
+
+    p{
+        padding-top: 18px;
+    }
+
+    .fa-chevron-down {
+        top: -7px;
+        margin-left: 10px;
+    }
+}
+
+.browse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    background-color: $secondary;
+    height: 100%;
+    width: 15%;
+
+    p{
+        padding-top: 18px;
+    }
+
+    .fa-chevron-down {
+        top: -7px;
+        margin-left: 10px;
+    }
+}
+
+.fa-chevron-down {
+    font-size: 1.5rem;
+}
+
+.text-right {
+    font-weight: 800;
+}

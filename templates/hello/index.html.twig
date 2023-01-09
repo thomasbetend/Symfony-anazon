@@ -2,19 +2,31 @@
 
 {% block title %}Hello HelloController!{% endblock %}
 
+{% block header %}
+    {{ parent() }} ET LA
+{% endblock %}
+
 {% block body %}
+
+<a href="{{ path('app_hello', {'name': 'Bob'}) }}">ALLEZ LA</a>
+
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/cedriclombardot/anazon/src/Controller/HelloController.php'|file_link(0) }}">src/Controller/HelloController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/cedriclombardot/anazon/templates/hello/index.html.twig'|file_link(0) }}">templates/hello/index.html.twig</a></code></li>
-    </ul>
+    {% set tabs=['a', 'b'] %}
+    <h1>{% if category|length < 5 %}</h1>
+            {% for i in category %}
+                {{ i }}<br>
+                - {{ loop.first }} - {{ loop.last }} - {{ loop.index }} -<br>
+            {% endfor %}
+            This friendly message is coming from:
+            <ul>
+                <li>Your controller at <code><a href="{{ '/Users/cedriclombardot/anazon/src/Controller/HelloController.php'|file_link(0) }}">src/Controller/HelloController.php</a></code></li>
+                <li>Your template at <code><a href="{{ '/Users/cedriclombardot/anazon/templates/hello/index.html.twig'|file_link(0) }}">templates/hello/index.html.twig</a></code></li>
+            </ul>
+        {% endif %}
 </div>
 {% endblock %}

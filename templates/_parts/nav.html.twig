@@ -1,0 +1,45 @@
+{% block head %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            <i class="fa-solid fa-democrat"></i>Anazon
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0 search-nav">
+                    <div class="search-white"></div>
+                    <input class="form-control mr-sm-2 input-nav" type="search" placeholder="Recherce" aria-label="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0 button-nav" type="submit">Chercher</button>
+            </form>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <i class="fa-solid fa-user"></i>
+                        <p class="text-nav-bar">Connexion</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <div class="fav">
+                            <i class="fa-solid fa-heart"></i>
+                            <div class="yellow-round">0</div>
+                        </div>
+                        <p class="text-nav-bar">Fav</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <div class="fav">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <div class="yellow-round">0</div>
+                        </div>
+                        <p class="text-nav-bar">Panier</p>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
