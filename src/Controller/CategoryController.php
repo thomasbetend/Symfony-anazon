@@ -25,4 +25,12 @@ class CategoryController extends AbstractController
             'category' => $category,
         ]);
     }
+
+    #[Route('/titles', name: 'app_title')]
+    public function showTitle(CategoryRepository $categoryRepository): Response
+    {
+        return $this->render('category/title.html.twig', [
+            'categories_title' => $categoryRepository->findByTitle('peluches'),
+        ]);
+    }
 }

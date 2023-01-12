@@ -17,17 +17,17 @@ class CategoryFixtures extends Fixture
         $jouets->setImagePath('ane-a-bascule.jpeg');
         $manager->persist($jouets);
 
-        $category = new Category();
-        $category->setTitle('Peluches');
-        $category->setParent($jouets);
-        $category->setImagePath('ane-en-peluche.jpg');
-        $manager->persist($category);
-        $this->addReference(self::CATEGORY_PELUCHES, $category);
+        $peluches = new Category();
+        $peluches->setTitle('Peluches');
+        $peluches->setParent($jouets);
+        $peluches->setImagePath('ane-en-peluche.jpg');
+        $manager->persist($peluches);
+        $this->addReference(self::CATEGORY_PELUCHES, $peluches);
 
-        $category = new Category();
-        $category->setTitle('Balades');
-        $category->setImagePath('balade-en-ane.jpeg');
-        $manager->persist($category);
+        $balades = new Category();
+        $balades->setTitle('Balades');
+        $balades->setImagePath('balade-en-ane.jpeg');
+        $manager->persist($balades);
 
         $manager->flush();
     }
