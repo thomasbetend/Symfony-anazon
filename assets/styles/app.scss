@@ -86,7 +86,7 @@ fa-solid {
     width: 540px;
     height: 60px;
     z-index: 3;
-    position: absolute;
+    position: relative;
 }
 
 .button-nav {
@@ -377,3 +377,12 @@ a {
 .text-no-product-in-categories {
     padding-left: 50px
 }
+
+.input-type {
+    position: relative !important;
+}
+
+.form-login {
+    
+}
+

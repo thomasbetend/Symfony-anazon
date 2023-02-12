@@ -1,5 +1,6 @@
 {% block body %}
- {% for category in categories_title %}
+    {{ categories_idpage }}
+{% for category in categories_id %}
     {{ category.title }}
- {% endfor %}
+{% endfor %}
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 
 class UserCrudController extends AbstractCrudController
@@ -20,5 +21,7 @@ class UserCrudController extends AbstractCrudController
         yield Field::new('plainPassword')
             ->setHelp('Laissez vide pour conserver le mot de passe actuel')
             ->onlyOnForms();
+        yield CollectionField::new('roles');
+
     }
 }

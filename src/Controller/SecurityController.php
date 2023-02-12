@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,8 +26,21 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
-    public function logout(): void
+    public function logout(CategoryRepository $categoryRepository): Response
     {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        return $this->render('hello/index.html.twig');
+    }
+
+    #[Route(path: '/logout2', name: 'app_logout2')]
+    public function logout2(string $name = 'Bobby'): Response
+    {
+        return $this->render('hello/index.html.twig', [
+            'category' => [
+                'title' =>'Hello '.$name,
+                'title2' =>'Hello '.$name,
+                'title3' =>'Hello '.$name,
+                'title4' =>'Hello '.$name,
+            ],
+        ]);
     }
 }
