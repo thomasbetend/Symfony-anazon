@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+<table class="table table-full table-striped table-hover">
+<thead>
+    <tr>
+        <th>Photo</th>
+        <th>Produit</th>
+        <th>Prix</th>
+        <th>Quantité</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+</tbody>
+    {% for cartRow in cart.getRows() %}
+        {% set product = getProductById(cartRow.productId) %}
+        <tr data-controller="cartrow">
+            <td>
+                {% if product.productImages | length > 0 %}
+                    <img src="{{ asset('product-images/' ~ product.productImages[0].path) }}" alt="" width="100" />
+                {% endif %}
+            </td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td data-cartrow-target="quantity">{{ cartRow.quantity }}</td>
+            <td>
+                <a data-action="click->cartrow#remove" data-cartrow-productid-param="{{ cartRow.productId }}">
+                    <i class="fa fa-trash cart-trash"></i>
+                </a>
+                <a data-action="click->cartrow#increment" data-cartrow-productid-param="{{ cartRow.productId }}">
+                    <i class="fa fa-plus cart-plus"></i>
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td>
+                Votre panier est vide
+            </td>
+        </tr>
+    {% endfor %}
+</tbody
+
+{% endblock %}

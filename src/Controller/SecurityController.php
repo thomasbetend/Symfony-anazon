@@ -5,17 +5,21 @@ namespace App\Controller;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, SessionInterface $session): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        if ($this->getUser()) {
+            
+            $session->set('user', $this->getUser()->getUserIdentifier());
+            
+            return $this->redirectToRoute('app_categories');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -26,21 +30,10 @@ class SecurityController extends AbstractController
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
-    public function logout(CategoryRepository $categoryRepository): Response
+    public function logout(CategoryRepository $categoryRepository): void
     {
-        return $this->render('hello/index.html.twig');
+        //return $this->render('category/list.html.twig');
+        //return $this->redirectToRoute('app_login');
     }
 
-    #[Route(path: '/logout2', name: 'app_logout2')]
-    public function logout2(string $name = 'Bobby'): Response
-    {
-        return $this->render('hello/index.html.twig', [
-            'category' => [
-                'title' =>'Hello '.$name,
-                'title2' =>'Hello '.$name,
-                'title3' =>'Hello '.$name,
-                'title4' =>'Hello '.$name,
-            ],
-        ]);
-    }
 }

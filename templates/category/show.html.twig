@@ -179,7 +179,7 @@
                 <div class="row">
                     {% for product in category.products %}
                         <div class="col">
-                            <a href="">
+                            <a href="{{ path('app_product', {slug: product.slug}) }}">
                                 <div class="card card-products">
                                     {% if product.productImages | length > 0 %}
                                         <img src="{{ asset('product-images/' ~ product.productImages[0].path) }}" width="100"/>

@@ -111,7 +111,7 @@ fa-solid {
     margin-left: 15px;
 }
 
-.fa-user {
+.fa-user, .fa-sign-out-alt {
     top: -7px;
     position: relative;
     color: white;
@@ -190,6 +190,11 @@ fa-solid {
     background-color: $secondary;
     height: 100%;
     width: 15%;
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
 
     p{
         padding-top: 18px;
@@ -386,3 +391,8 @@ a {
     
 }
 
+/* Cart  */
+
+.cart-trash, .cart-plus, .cart-minus {
+    cursor: pointer;
+}

@@ -15,10 +15,17 @@
             </form>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
+                {% if app.user %}
+                    <a class="nav-link" href="{{ path('app_logout') }}">
+                        <i class="fa-solid fa-sign-out-alt"></i>
+                        <p class="text-nav-bar">Déconnexion</p>
+                    </a>
+                {% else %}
                     <a class="nav-link" href="{{ path('app_login') }}">
                         <i class="fa-solid fa-user"></i>
                         <p class="text-nav-bar">Connexion</p>
                     </a>
+                {% endif %}
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
@@ -29,11 +36,11 @@
                         <p class="text-nav-bar">Fav</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-controller="cartheader">
                     <a class="nav-link" href="#">
                         <div class="fav">
                             <i class="fa-solid fa-cart-plus"></i>
-                            <div class="yellow-round">0</div>
+                            <div class="yellow-round" data-cartheader-target="quantity">{{ app.request.session.has('cart')? app.request.session.get('cart').countTotalProducts() : 0}}</div>
                         </div>
                         <p class="text-nav-bar">Panier</p>
                     </a>
